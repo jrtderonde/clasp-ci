@@ -1,0 +1,21 @@
+name: deploy_clasp_library
+
+env:
+  clasp_token: ${{ env.CLASP_CREDENTIALS }}
+
+on:
+  push:
+    branches: ["master", "main"]
+  pull_request:
+    branches: ["master", "main"]
+
+jobs:
+  pre_build:
+    runs-on: ubuntu-latest
+    container: node:16-alpine
+    steps:
+      - name: checkout_repo
+        uses: actions/checkout@v3
+      - log_creds:
+        run: |
+          echo $CLASP_CREDENTIALS

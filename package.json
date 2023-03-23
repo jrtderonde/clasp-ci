@@ -1,0 +1,17 @@
+{
+  "name": "clasp-ci",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jrtderonde/clasp-ci.git",
+  "author": "Jim de Ronde <jim.de.ronde@greenhousegroup.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@google/clasp": "^2.4.2",
+    "@types/google-apps-script": "^1.0.59"
+  },
+  "scripts": {
+    "clasp:login": "./node_modules/.bin/clasp login --creds .clasprc.json",
+    "clasp:push": "./node_modules/.bin/clasp push",
+    "clasp:bump-version": "./node_modules/.bin/clasp deploy"
+  }
+}
