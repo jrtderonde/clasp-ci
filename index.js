@@ -15,3 +15,7 @@ function toast(...args) {
 
   return sheet.toast(...args);
 }
+
+function helloWorld() {
+  return console.log("Hello world");
+}
