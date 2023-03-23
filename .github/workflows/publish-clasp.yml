@@ -3,6 +3,7 @@ name: deploy_clasp_library
 env:
   CLASP_FILE: .clasprc.json
   CLASP_CREDENTIALS: ${{ secrets.CLASP_CREDENTIALS }}
+  ARTIFACTS_NAME: clasp-ci-${{ GITHUB_REPOSITORY_ID }}
 
 on:
   push:
@@ -27,11 +28,20 @@ jobs:
         run: |
           if [ -f "$FILE" ]; then exit 1; fi
 
+      - name: save_pre_build_artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: env.ARTIFACTS_NAME
+          path: .
+
   build:
     needs: pre_build
     runs-on: ubuntu-latest
     container: node:16-alpine
     steps:
-      - name: test
+      - name: download_artifacts
+        uses: actions/downlod-artifacts@v3
+
+      - name: list_files
         run: |
           ls -la
