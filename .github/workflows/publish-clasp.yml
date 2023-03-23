@@ -1,7 +1,7 @@
 name: deploy_clasp_library
 
 env:
-  clasp_token: ${{ vars.CLASP_CREDENTIALS }}
+  CLASP_CREDENTIALS: ${{ vars.CLASP_CREDENTIALS }}
 
 on:
   push:
