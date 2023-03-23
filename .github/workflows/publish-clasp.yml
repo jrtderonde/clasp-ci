@@ -41,7 +41,7 @@ jobs:
     steps:
       - name: download_artifacts
         uses: actions/downlod-artifacts@v3
-        with: env.ARTIFACTS_NAME
+        with: ${{ env.ARTIFACTS_NAME }}
 
       - name: list_files
         run: |
