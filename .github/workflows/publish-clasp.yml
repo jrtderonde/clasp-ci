@@ -31,7 +31,7 @@ jobs:
       - name: save_pre_build_artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: env.ARTIFACTS_NAME
+          name: ${{ env.ARTIFACTS_NAME }}
           path: .
 
   build:
@@ -43,9 +43,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: download_artifacts
-        uses: actions/download-artifacts@v3
+        uses: actions/download-artifact@v3
         with:
-          name: env.ARTIFACTS_NAME
+          name: ${{ env.ARTIFACTS_NAME }}
           path: .
 
       - name: list_files
