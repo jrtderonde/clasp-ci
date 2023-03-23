@@ -74,7 +74,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.ARTIFACTS_NAME }}
-          path: .
+          path: |
+            .
+            !./node_modules
 
   deploy:
     needs: build
