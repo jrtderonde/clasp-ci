@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     container: node:16-alpine
     steps:
-      - name: checkout_repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
 
       - name: create_clasp_credentails
         if: ${{ env.CLASP_CREDENTIALS != '' }}
