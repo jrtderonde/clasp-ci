@@ -40,8 +40,8 @@ jobs:
     container: node:16-alpine
     steps:
       - name: download_artifacts
-        uses: actions/downlod-artifacts@v3
-        with: ${{ env.ARTIFACTS_NAME }}
+        uses: actions/download-artifacts@v3
+        with: env.ARTIFACTS_NAME
 
       - name: list_files
         run: |
