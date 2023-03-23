@@ -1,13 +1,12 @@
 name: deploy_clasp_library
 
-env:
-  CLASP_CREDENTIALS: ${{ vars.CLASP_CREDENTIALS }}
-
 on:
   push:
     branches: ["master", "main"]
   pull_request:
     branches: ["master", "main"]
+env:
+  clasp_credentials: ${{ vars.CLASP_CREDENTIALS }}
 
 jobs:
   pre_build:
@@ -18,4 +17,4 @@ jobs:
         uses: actions/checkout@v3
       - name: log_creds
         run: |
-          echo $CLASP_CREDENTIALS
+          echo "This is the src: $clasp_credentials"
