@@ -27,3 +27,7 @@ jobs:
       - name: exists_clasp_file
         run: |
           if [ -f "$FILE" ]; then exit 1; fi
+
+      - name: login_clasp
+        run: |
+          clasp login --creds "$CLASP_FILE"
