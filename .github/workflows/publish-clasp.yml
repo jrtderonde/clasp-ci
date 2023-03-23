@@ -1,7 +1,7 @@
 name: deploy_clasp_library
 
 env:
-  CLASP_FILE: .clasprc.json
+  CLASP_FILE: ~/.clasprc.json
   CLASP_CREDENTIALS: ${{ secrets.CLASP_CREDENTIALS }}
   ARTIFACTS_NAME: clasp-ci-${{ github.event.repository.id }}
   NODE_VERSION: 16
@@ -74,10 +74,6 @@ jobs:
         run: |
           yarn install --frozen-lockfile
 
-      - name: install_global_clasp
+      - name: clasp_bump_version
         run: |
-          yarn global add @google/clasp
-
-      - name: login_global_clasp
-        run: |
-          clasp login --creds "$CLASP_FILE"
+          yarn clasp:bump-version

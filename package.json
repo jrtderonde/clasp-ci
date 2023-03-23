@@ -10,8 +10,8 @@
     "@types/google-apps-script": "^1.0.59"
   },
   "scripts": {
-    "clasp:login": "clasp login --creds .clasprc.json",
-    "clasp:push": "clasp push",
-    "clasp:bump-version": "clasp deploy"
+    "clasp:login": "./node_modules/.bin/clasp login --creds .clasprc.json",
+    "clasp:push": "./node_modules/.bin/clasp push",
+    "clasp:bump-version": "./node_modules/.bin/clasp deploy"
   }
 }
