@@ -1,5 +1,8 @@
 name: deploy_clasp_library
 
+env:
+  CLASP_FILE: .clasprc.json
+
 on:
   push:
     branches: ["master", "main"]
@@ -19,4 +22,8 @@ jobs:
           CLASP_CREDENTIALS: ${{ secrets.CLASP_CREDENTIALS }}
         if: ${{ env.CLASP_CREDENTIALS != '' }}
         run: |
-          echo $CLASP_CREDENTIALS >> .clasprc.json
+          echo $CLASP_CREDENTIALS >> "$CLASP_FILE"
+
+      - name: exists_clasp_file
+        run: |
+          if [ -f "$FILE" ]; then exit 1; fi
