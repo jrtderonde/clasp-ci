@@ -56,6 +56,12 @@ jobs:
         run: |
           yarn install --frozen-lockfile
 
+      - name: save_pre_build_artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.ARTIFACTS_NAME }}
+          path: .
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
