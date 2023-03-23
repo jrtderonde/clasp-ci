@@ -39,9 +39,14 @@ jobs:
     runs-on: ubuntu-latest
     container: node:16-alpine
     steps:
+      - name: checkout_repo
+        uses: actions/checkout@v3
+
       - name: download_artifacts
         uses: actions/download-artifacts@v3
-        with: ${{ env.ARTIFACTS_NAME }}
+        with:
+          name: env.ARTIFACTS_NAME
+          path: .
 
       - name: list_files
         run: |
