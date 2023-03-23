@@ -16,6 +16,6 @@ jobs:
     steps:
       - name: checkout_repo
         uses: actions/checkout@v3
-      - name: log_creds:
+      - name: log_creds
         run: |
           echo $CLASP_CREDENTIALS
