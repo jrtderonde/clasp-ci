@@ -26,14 +26,14 @@ jobs:
         run: |
           if [ -f "$FILE" ]; then exit 1; fi
 
-      - name: save_pre_build_artifacts
+      - name: save_pre_install_artifacts
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.ARTIFACTS_NAME }}
           path: .
 
   install:
-    needs: pre_build
+    needs: pre_install
     runs-on: ubuntu-latest
     container: node:16-alpine
     steps:
@@ -49,7 +49,7 @@ jobs:
         run: |
           yarn install --frozen-lockfile
 
-      - name: save_pre_build_artifacts
+      - name: save_install_artifacts
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.ARTIFACTS_NAME }}
