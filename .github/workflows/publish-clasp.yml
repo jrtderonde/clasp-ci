@@ -1,7 +1,7 @@
 name: deploy_clasp_library
 
 env:
-  clasp_token: ${{ env.CLASP_CREDENTIALS }}
+  clasp_token: ${{ vars.CLASP_CREDENTIALS }}
 
 on:
   push:
@@ -16,6 +16,6 @@ jobs:
     steps:
       - name: checkout_repo
         uses: actions/checkout@v3
-      - log_creds:
+      - name: log_creds:
         run: |
           echo $CLASP_CREDENTIALS
