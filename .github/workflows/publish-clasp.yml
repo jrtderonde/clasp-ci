@@ -74,9 +74,9 @@ jobs:
         run: |
           yarn install --frozen-lockfile
 
-      - name: clasp_login
+      - name: clasp_move_creds
         run: |
-          yarn clasp:login
+          mv "$CLASP_FILE" "/home/node/$CLASP_FILE"
 
       - name: clasp_push
         run: |
