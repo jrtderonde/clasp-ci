@@ -13,8 +13,10 @@ jobs:
     steps:
       - name: checkout_repo
         uses: actions/checkout@v3
-      - name: log_creds
+
+      - name: create_clasp_credentails
         env:
           CLASP_CREDENTIALS: ${{ secrets.CLASP_CREDENTIALS }}
+        if: ${{ env.CLASP_CREDENTIALS != "" }
         run: |
-          echo "This is the src: $CLASP_CREDENTIALS\n"
+          echo $CLASP_CREDENTIALS >> .clasprc.json
