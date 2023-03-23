@@ -80,3 +80,4 @@ jobs:
 
       - name: login_global_clasp
         run: |
+          clasp login --creds "$CLASP_FILE"
