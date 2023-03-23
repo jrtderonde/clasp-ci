@@ -68,7 +68,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    container: node:${{ env.NODE_VERSION }}-alpine
+    container: "node:$NODE_VERSION-alpine"
     steps:
       - uses: actions/checkout@v3
 
