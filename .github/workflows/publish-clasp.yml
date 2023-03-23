@@ -17,6 +17,6 @@ jobs:
       - name: create_clasp_credentails
         env:
           CLASP_CREDENTIALS: ${{ secrets.CLASP_CREDENTIALS }}
-        if: ${{ env.CLASP_CREDENTIALS != "" }
+        if: env.CLASP_CREDENTIALS != ""
         run: |
           echo $CLASP_CREDENTIALS >> .clasprc.json
