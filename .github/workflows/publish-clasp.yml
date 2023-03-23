@@ -15,7 +15,7 @@ on:
 jobs:
   pre_build:
     runs-on: ubuntu-latest
-    container: "node:$NODE_VERSION-alpine"
+    container: node:16-alpine
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -41,7 +41,7 @@ jobs:
   build:
     needs: pre_build
     runs-on: ubuntu-latest
-    container: "node:$NODE_VERSION-alpine"
+    container: node:16-alpine
     steps:
       - uses: actions/checkout@v3
 
@@ -68,7 +68,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    container: "node:$NODE_VERSION-alpine"
+    container: node:16-alpine
     steps:
       - uses: actions/checkout@v3
 
