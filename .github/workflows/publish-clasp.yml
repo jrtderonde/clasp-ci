@@ -7,7 +7,7 @@ on:
     branches: ["master", "main"]
 env:
   clasp_credentials: ${{ vars.CLASP_CREDENTIALS }}
-  test: ${{ TEST }}
+  test: ${{ vars.TEST }}
 
 jobs:
   pre_build:
