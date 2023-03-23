@@ -3,7 +3,7 @@ name: deploy_clasp_library
 env:
   CLASP_FILE: .clasprc.json
   CLASP_CREDENTIALS: ${{ secrets.CLASP_CREDENTIALS }}
-  ARTIFACTS_NAME: "clasp-ci-${{ env.GITHUB_REPOSITORY_ID }}"
+  ARTIFACTS_NAME: clasp-ci-${{ github.event.repository.name }}
 
 on:
   push:
