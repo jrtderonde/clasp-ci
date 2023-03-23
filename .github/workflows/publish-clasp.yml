@@ -91,6 +91,10 @@ jobs:
           name: ${{ env.ARTIFACTS_NAME }}
           path: .
 
+      - name: install_dependencies
+        run: |
+          yarn install --frozen-lockfile
+
       - name: clasp_login
         run: |
           yarn clasp:login
